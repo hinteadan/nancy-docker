@@ -1,6 +1,6 @@
-﻿using Mono.Unix;
+﻿using Microsoft.Owin.Hosting;
+using Mono.Unix;
 using Mono.Unix.Native;
-using Nancy.Hosting.Self;
 using System;
 
 namespace H.Playground.NancyWebApi.SelfHost
@@ -15,27 +15,23 @@ namespace H.Playground.NancyWebApi.SelfHost
             const string url = "http://localhost:8888";
 #endif
 
-            Console.WriteLine($"Starting Nancy on {url}...");
-
-            var uri = new Uri(url);
-            var host = new NancyHost(uri);
-            host.Start();
-
+            using (WebApp.Start<Startup>(url))
+            {
+                Console.WriteLine($"Starting Nancy on {url}...");
 #if DEBUG
-            System.Diagnostics.Process.Start(url);
+                System.Diagnostics.Process.Start(url);
 #endif
 
-            if (IsRunningOnMono())
-            {
-                var terminationSignals = GetUnixTerminationSignals();
-                UnixSignal.WaitAny(terminationSignals);
+                if (IsRunningOnMono())
+                {
+                    var terminationSignals = GetUnixTerminationSignals();
+                    UnixSignal.WaitAny(terminationSignals);
+                }
+                else
+                {
+                    Console.ReadLine();
+                }
             }
-            else
-            {
-                Console.ReadLine();
-            }
-
-            host.Stop();
         }
 
         private static bool IsRunningOnMono()
