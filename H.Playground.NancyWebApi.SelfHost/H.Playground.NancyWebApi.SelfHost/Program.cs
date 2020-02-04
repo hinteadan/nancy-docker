@@ -10,18 +10,15 @@ namespace H.Playground.NancyWebApi.SelfHost
         static void Main(string[] args)
         {
 #if DEBUG
-            const string url = "http://localhost:8899";
+            const string url = "http://+:8899";
 #else
-            const string url = "http://localhost:8888";
+            const string url = "http://+:8888";
 #endif
+
+            Console.WriteLine($"Starting Nancy on {url} @ {DateTime.Now}");
 
             using (WebApp.Start<Startup>(url))
             {
-                Console.WriteLine($"Starting Nancy on {url}...");
-#if DEBUG
-                System.Diagnostics.Process.Start(url);
-#endif
-
                 if (IsRunningOnMono())
                 {
                     var terminationSignals = GetUnixTerminationSignals();
@@ -32,6 +29,9 @@ namespace H.Playground.NancyWebApi.SelfHost
                     Console.ReadLine();
                 }
             }
+
+            Console.WriteLine($"Stopped Nancy on {url} @ {DateTime.Now}");
+
         }
 
         private static bool IsRunningOnMono()

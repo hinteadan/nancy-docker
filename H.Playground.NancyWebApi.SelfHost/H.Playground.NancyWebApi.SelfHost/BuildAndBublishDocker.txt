@@ -1,9 +1,9 @@
-docker build -t h-playground-nancy-webapi:0.0.3 .
+docker build -t h-playground-nancy-webapi:0.0.9 .
 
-docker tag h-playground-nancy-webapi:0.0.3 hinteadan/h-playground-nancy-webapi:0.0.3
+docker tag h-playground-nancy-webapi:0.0.9 hinteadan/h-playground-nancy-webapi:0.0.9
 
-docker tag h-playground-nancy-webapi:0.0.3 hinteadan/h-playground-nancy-webapi:latest
+docker tag h-playground-nancy-webapi:0.0.9 hinteadan/h-playground-nancy-webapi:latest
 
-docker push hinteadan/h-playground-nancy-webapi:0.0.3
+docker push hinteadan/h-playground-nancy-webapi:0.0.9
 
 docker push hinteadan/h-playground-nancy-webapi:latest
