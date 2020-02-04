@@ -9,7 +9,11 @@ namespace H.Playground.NancyWebApi.SelfHost
     {
         static void Main(string[] args)
         {
+#if DEBUG
+            const string url = "http://localhost:8899";
+#else
             const string url = "http://localhost:8888";
+#endif
 
             Console.WriteLine($"Starting Nancy on {url}...");
 
