@@ -21,6 +21,10 @@ namespace H.Playground.NancyWebApi.SelfHost
             var host = new NancyHost(uri);
             host.Start();
 
+#if DEBUG
+            System.Diagnostics.Process.Start(url);
+#endif
+
             if (IsRunningOnMono())
             {
                 var terminationSignals = GetUnixTerminationSignals();
