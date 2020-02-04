@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Playground.NancyWebApi.SelfHost", "H.Playground.NancyWebApi.SelfHost\H.Playground.NancyWebApi.SelfHost.csproj", "{8F1C0864-4DCF-40EC-9CDA-140BCA352238}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.Playground.NancyWebApi.Core", "H.Playground.NancyWebApi.Core\H.Playground.NancyWebApi.Core.csproj", "{DF0E1275-7F9F-488C-BECB-039BCAB79198}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F1C0864-4DCF-40EC-9CDA-140BCA352238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1C0864-4DCF-40EC-9CDA-140BCA352238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1C0864-4DCF-40EC-9CDA-140BCA352238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1C0864-4DCF-40EC-9CDA-140BCA352238}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF0E1275-7F9F-488C-BECB-039BCAB79198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0E1275-7F9F-488C-BECB-039BCAB79198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0E1275-7F9F-488C-BECB-039BCAB79198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0E1275-7F9F-488C-BECB-039BCAB79198}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBFC91A6-831D-447B-AE82-822ED7989B86}
+	EndGlobalSection
+EndGlobal
