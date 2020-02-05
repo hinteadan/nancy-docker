@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using Nancy.Authentication.Basic;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
@@ -17,6 +18,14 @@ namespace H.Playground.NancyWebApi.Core
             {
                 Console.WriteLine(Print(context));
             });
+
+            pipelines.EnableBasicAuthentication(
+                new BasicAuthenticationConfiguration(
+                    new Auth.BasicAuthUserValidator(),
+                    "H-Playground-NancyWebApi",
+                    UserPromptBehaviour.Never
+                )
+            );
         }
 
         protected override void ConfigureConventions(NancyConventions nancyConventions)
