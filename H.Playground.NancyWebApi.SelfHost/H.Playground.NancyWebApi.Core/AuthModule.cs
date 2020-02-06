@@ -6,9 +6,9 @@ namespace H.Playground.NancyWebApi.Core
 {
     public class AuthModule : NancyModule
     {
-        private readonly Auth0Authenticator auth0Authenticator = new Auth0Authenticator();
-
-        public AuthModule() : base("/auth")
+        public AuthModule(
+            Auth0Authenticator auth0Authenticator
+            ) : base("/auth")
         {
             Post(
                 path: "/token",
@@ -22,7 +22,7 @@ namespace H.Playground.NancyWebApi.Core
                     if (!user.Identity.IsAuthenticated)
                         return HttpStatusCode.Unauthorized;
 
-                    AuthTokenResult tokenResult = await auth0Authenticator.GetAccessTokenFor(
+                    AuthTokenResult tokenResult = await auth0Authenticator.GetApiAccessTokenFor(
                         user.Claims.Single(x => x.Type == BasicAuthUserValidator.clientIdClaimName).Value,
                         user.Claims.Single(x => x.Type == BasicAuthUserValidator.clientSecretClaimName).Value
                     );

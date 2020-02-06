@@ -13,9 +13,6 @@ namespace H.Playground.NancyWebApi.Core.Auth
             if (string.IsNullOrEmpty(username))
                 return null;
 
-            if (username != "hintee")
-                return null;
-
             ClaimsPrincipal principal = new ClaimsPrincipal(new ClaimsIdentity[] {
                 new ClaimsIdentity(
                     new UserIdentity(username),
